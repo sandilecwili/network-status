@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-core-network
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ip-core-network
+  template:
+    metadata:
+      labels:
+        component: ip-core-network
+    spec:
+      containers:
+        - name: ip-core-network
+          image: sanza007/apistatus:0.0.7
+
+          
+

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ip-core-dispatcher
+  namespace: ip
+data:
+  application.properties: |-
+    spring.cloud.kubernetes.enabled=true
+    server.port=8082
+    spring.artemis.mode=native
+    spring.artemis.host=artemis.artemis
+    spring.artemis.port=61616
+    spring.artemis.user=admin
+    spring.artemis.password=admin
+    spring.artemis.pool.enabled=false
+    spring.artemis.embedded.enabled=false
+    jms.queue.destination=topic/device

@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artemis
+  namespace: artemis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: artemis
+  template:
+    metadata:
+      labels:
+        component: artemis
+    spec:
+      containers:
+        - name: artemis
+          image: nkatekomuhlari/apache-artemis-2.11.0

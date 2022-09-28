@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ip-core-service
+  namespace: ip
+spec:
+  type: ClusterIP
+  selector:
+    component: ip-core-service
+  ports:
+    - port: 80
+      targetPort: 5000
+      name: http  
+
+

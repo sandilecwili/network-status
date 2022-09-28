@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-data-client
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: mongo-data-client
+  template:
+    metadata:
+      labels:
+        component: mongo-data-client
+    spec:
+      containers:
+        - name: mongo-data-client
+          image: mongo-express:0.54
+          env:
+            - name: ME_CONFIG_MONGODB_SERVER
+              value: mongo-data.ip.svc.cluster.local
+#            - name: ME_CONFIG_MONGODB_ENABLE_ADMIN
+#              value: "false"

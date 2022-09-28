@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongo-db-data-client
+  namespace: ip
+  annotations:
+    kubernetes.io/ingress.class:  nginx
+spec:
+  rules:
+    - host: mongoexpress.liquid.co.za
+      http:
+        paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: mongo-db-data-client
+              port:
+                number: 80

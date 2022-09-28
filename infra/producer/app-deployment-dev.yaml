@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-core-dispatcher
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ip-core-dispatcher
+  template:
+    metadata:
+      labels:
+        component: ip-core-dispatcher
+    spec:
+      containers:
+        - name: ip-core-dispatcher
+          image: hlulamabunda/ipsenderprod:0.0.1

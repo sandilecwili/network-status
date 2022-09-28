@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ip-listener-service
+  namespace: ip
+spec:
+  type: ClusterIP
+  selector:
+    component: ip-listener-service
+  ports:
+    - port: 80
+      targetPort: 8083
+      name: http  
+
+

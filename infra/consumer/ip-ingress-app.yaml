@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ip-listener-service
+  namespace: ip
+  annotations:
+    kubernetes.io/ingress.class:  nginx
+spec:
+  rules:
+    - host: portal-ip-api-dev.liquidtelecom.co.za
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ip-listener-service
+                port:
+                  number: 80
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-listener-service
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ip-listener-service
+  template:
+    metadata:
+      labels:
+        component: ip-listener-service
+    spec:
+      containers:
+        - name: ip-listener-service
+          image: hlulamabunda/iplistenerprod:0.0.2
+
+
+          
+

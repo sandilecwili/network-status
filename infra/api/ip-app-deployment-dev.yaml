@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-core-service
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ip-core-service
+  template:
+    metadata:
+      labels:
+        component: ip-core-service
+    spec:
+      containers:
+        - name: ip-core-service
+          image: thembi07/ipimage:0.2
+
+          
+

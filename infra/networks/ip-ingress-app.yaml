@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ip-core-network
+  namespace: ip
+  annotations:
+    kubernetes.io/ingress.class:  nginx
+spec:
+  rules:
+    - host: network.liquidtelecom.co.za
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: ip-core-network
+                port:
+                  number: 80
+

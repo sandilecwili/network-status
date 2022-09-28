@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: artemis
+  namespace: artemis
+spec:
+  type: ClusterIP
+  selector:
+    component: artemis
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8161
+    - name: port
+      port: 61616
+      targetPort: 61616
+    - name: stomp-port
+      port: 61613
+      targetPort: 61613

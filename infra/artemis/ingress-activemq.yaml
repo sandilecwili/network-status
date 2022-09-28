@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: artemis
+  namespace: artemis
+  annotations:
+    kubernetes.io/ingress.class:  nginx
+spec:
+  rules:
+    - host: activemq.local.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: artemis
+                port:
+                  number: 80

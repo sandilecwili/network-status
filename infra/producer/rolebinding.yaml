@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  namespace: ip
+  name: ip-core-role
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ip-core-role-binding
+  namespace: ip
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: ip
+    apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: ip-core-role
+  apiGroup: ""

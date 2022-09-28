@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-data
+  namespace: ip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: mongo-data
+  template:
+    metadata:
+      labels:
+        component: mongo-data
+    spec:
+      containers:
+        - name: mongo-data
+          image: mongo:4.0
+         
